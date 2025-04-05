@@ -1,0 +1,360 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+const pathname = Astro.url.pathname;
+---
+<MainLayout title="About" pathname={pathname}>
+  <section class="about">
+    <div class="container">
+      <div class="page-header">
+        <h1>About Me</h1>
+        <div class="header-underline"></div>
+      </div>
+      
+      <div class="bio-section">
+        <div class="bio-content">
+          <h2>My Journey</h2>
+          <p>
+            I love building things that work and scale.What drives me is the constant evolution in tech. There’s always something new to learn, a better way to solve a problem, or a smarter system to build. I’m especially passionate about bridging the gap between software and hardware — making smart systems that not only run smoothly but also interact with the real world in meaningful ways.
+
+            Whether it’s deploying scalable applications, integrating IoT devices, or optimizing workflows through DevOps practices, I’m all about building smart, future-ready solutions.
+          </p>
+        </div>
+        <div class="bio-image">
+          <img src="/assets/about-me.jpg" alt="Professional photo" />
+        </div>
+      </div>
+      
+      <div class="skills-section">
+        <h2>Skills & Expertise</h2>
+        
+        <div class="skills-grid">
+          <div class="skill-category">
+            <div class="category-header">
+              <span class="category-icon">🌐</span>
+              <h3>IoT Development</h3>
+            </div>
+            <div class="skill-bars">
+              <div class="skill">
+                <div class="skill-header">
+                  <span class="skill-name">Arduino</span>
+                  <span class="skill-percentage">90%</span>
+                </div>
+                <div class="progress-bar"><div class="progress-fill" style="width: 90%"></div></div>
+              </div>
+              <div class="skill">
+                <div class="skill-header">
+                  <span class="skill-name">Raspberry Pi</span>
+                  <span class="skill-percentage">85%</span>
+                </div>
+                <div class="progress-bar"><div class="progress-fill" style="width: 85%"></div></div>
+              </div>
+              <div class="skill">
+                <div class="skill-header">
+                  <span class="skill-name">MQTT</span>
+                  <span class="skill-percentage">80%</span>
+                </div>
+                <div class="progress-bar"><div class="progress-fill" style="width: 80%"></div></div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="skill-category">
+            <div class="category-header">
+              <span class="category-icon">💻</span>
+              <h3>Software Development</h3>
+            </div>
+            <div class="skill-bars">
+              <div class="skill">
+                <div class="skill-header">
+                  <span class="skill-name">JavaScript/TypeScript</span>
+                  <span class="skill-percentage">95%</span>
+                </div>
+                <div class="progress-bar"><div class="progress-fill" style="width: 95%"></div></div>
+              </div>
+              <div class="skill">
+                <div class="skill-header">
+                  <span class="skill-name">Go</span>
+                  <span class="skill-percentage">90%</span>
+                </div>
+                <div class="progress-bar"><div class="progress-fill" style="width: 90%"></div></div>
+              </div>
+              <div class="skill">
+                <div class="skill-header">
+                  <span class="skill-name">Python</span>
+                  <span class="skill-percentage">85%</span>
+                </div>
+                <div class="progress-bar"><div class="progress-fill" style="width: 85%"></div></div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="skill-category">
+            <div class="category-header">
+              <span class="category-icon">⚙️</span>
+              <h3>DevOps</h3>
+            </div>
+            <div class="skill-bars">
+              <div class="skill">
+                <div class="skill-header">
+                  <span class="skill-name">Docker</span>
+                  <span class="skill-percentage">85%</span>
+                </div>
+                <div class="progress-bar"><div class="progress-fill" style="width: 85%"></div></div>
+              </div>
+              <div class="skill">
+                <div class="skill-header">
+                  <span class="skill-name">Kubernetes</span>
+                  <span class="skill-percentage">75%</span>
+                </div>
+                <div class="progress-bar"><div class="progress-fill" style="width: 75%"></div></div>
+              </div>
+              <div class="skill">
+                <div class="skill-header">
+                  <span class="skill-name">CI/CD</span>
+                  <span class="skill-percentage">80%</span>
+                </div>
+                <div class="progress-bar"><div class="progress-fill" style="width: 80%"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  /* Global Variables (should match your main page) */
+  :root {
+    --primary: #3182ce;
+    --primary-dark: #2c5282;
+    --secondary: #f7fafc;
+    --gray-light: #f8f9fa;
+    --gray: #e2e8f0;
+    --dark: #2d3748;
+    --text: #4a5568;
+    --accent: #4299e1;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    --shadow: 0 4px 6px rgba(0,0,0,0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+    --radius: 8px;
+    --transition: all 0.3s ease;
+  }
+  
+  /* Container */
+  .container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+  
+  /* About Section */
+  .about {
+    padding: 0 0 5rem;
+  }
+  
+  /* Page Header */
+  .page-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+  }
+  
+  .page-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 1rem;
+  }
+  
+  .header-underline {
+    height: 4px;
+    width: 80px;
+    background: linear-gradient(to right, var(--primary), var(--accent));
+    margin: 0 auto;
+    border-radius: 2px;
+  }
+  
+  /* Bio Section */
+  .bio-section {
+    display: flex;
+    gap: 3rem;
+    margin-bottom: 4rem;
+    align-items: center;
+  }
+  
+  .bio-content {
+    flex: 3;
+  }
+  
+  .bio-content h2 {
+    font-size: 1.8rem;
+    color: var(--dark);
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .bio-content h2:after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background-color: var(--primary);
+  }
+  
+  .bio-content p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--text);
+  }
+  
+  .bio-image {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .bio-image img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-lg);
+    transition: var(--transition);
+  }
+  
+  .bio-image img:hover {
+    transform: scale(1.03);
+  }
+  
+  /* Skills Section */
+  .skills-section {
+    padding-top: 2rem;
+  }
+  
+  .skills-section h2 {
+    font-size: 1.8rem;
+    color: var(--dark);
+    margin-bottom: 2.5rem;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .skills-section h2:after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background-color: var(--primary);
+  }
+  
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+  }
+  
+  /* Skill Categories */
+  .skill-category {
+    background-color: white;
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+  }
+  
+  .skill-category:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .category-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .category-icon {
+    font-size: 1.8rem;
+    margin-right: 0.75rem;
+  }
+  
+  .skill-category h3 {
+    font-size: 1.3rem;
+    color: var(--dark);
+    font-weight: 600;
+    margin: 0;
+  }
+  
+  /* Skill Bars */
+  .skill {
+    margin-bottom: 1.25rem;
+  }
+  
+  .skill:last-child {
+    margin-bottom: 0;
+  }
+  
+  .skill-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+  }
+  
+  .skill-name {
+    font-weight: 500;
+    color: var(--text);
+  }
+  
+  .skill-percentage {
+    font-weight: 600;
+    color: var(--primary);
+  }
+  
+  .progress-bar {
+    height: 10px;
+    background-color: var(--gray);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(to right, var(--primary), var(--accent));
+    border-radius: 10px;
+    transition: width 1s ease-in-out;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .bio-section {
+      flex-direction: column-reverse;
+      text-align: center;
+    }
+    
+    .bio-content h2:after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    .skills-section h2:after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    .skills-section h2,
+    .bio-content h2 {
+      display: block;
+      text-align: center;
+    }
+    
+    .skills-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

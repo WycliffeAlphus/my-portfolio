@@ -63,6 +63,45 @@ import background from '../assets/background.svg';
 		justify-content: center;
 	}
 
+	/* Navigation Bar */
+	.navbar {
+    background-color: var(--primary);
+    padding: 1rem 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    box-shadow: var(--shadow);
+  }
+
+  .navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 0;
+    margin: 0;
+  }
+
+  .navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius);
+    transition: var(--transition);
+  }
+
+  .navbar ul li a:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+  }
+  .navbar ul li a.active {
+	background-color: var(--primary-dark);
+	color: white;
+	border-color: #0077cc;
+  }
+
 	#hero {
 		display: flex;
 		align-items: start;

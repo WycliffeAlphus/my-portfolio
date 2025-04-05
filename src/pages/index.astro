@@ -1,11 +1,227 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import MainLayout from "../layouts/MainLayout.astro";
 ---
+<MainLayout title="Home">
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="content">
+        <h1>👋 Hi, I'm Wycliffe Onyango</h1>
+        <p class="tagline">Software Engineer | IoT Developer | DevOps Enthusiast</p>
+        <p>I'm passionate about building innovative solutions with cutting-edge technologies.</p>
+        <a href="/contact" class="cta-button">Get in Touch</a>
+      </div>
+      <div class="image">
+        <img src="/assets/profile.jpg" alt="Wycliffe Onyango" />
+      </div>
+    </div>
+  </section>
+  
+  <!-- Interests Section -->
+  <section class="interests">
+    <div class="container">
+      <h2>💡 My Interests</h2>
+      <div class="interests-grid">
+        <div class="interest-card">
+          <h3>🌐 Internet of Things (IoT)</h3>
+          <p>Building connected devices and smart solutions.</p>
+        </div>
+        <div class="interest-card">
+          <h3>💻 Software Development</h3>
+          <p>Creating efficient and elegant solutions to complex problems.</p>
+        </div>
+        <div class="interest-card">
+          <h3>⚙️ DevOps & Automation</h3>
+          <p>Streamlining development workflows and infrastructure.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</MainLayout>
 
-<Layout>
-	<Welcome />
-</Layout>
+<style>
+  /* Global Styles */
+  :root {
+    --primary: #3182ce;
+    --primary-dark: #2c5282;
+    --secondary: #f7fafc;
+    --gray-light: #f8f9fa;
+    --gray: #e2e8f0;
+    --dark: #2d3748;
+    --text: #4a5568;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    --shadow: 0 4px 6px rgba(0,0,0,0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+    --radius: 8px;
+    --transition: all 0.3s ease;
+  }
+
+  /* Container */
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* Typography */
+  body {
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  h1, h2, h3 {
+    color: var(--dark);
+    margin-bottom: 1rem;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+  }
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+  p {
+    margin-bottom: 1rem;
+  }
+
+  .tagline {
+    font-size: 1.25rem;
+    color: var(--primary);
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+  }
+
+  
+  /* Hero Section */
+  .hero {
+    padding: 8rem 0 5rem;
+    background: linear-gradient(to right, var(--secondary), white);
+  }
+
+  .hero .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+  }
+
+  .hero .content {
+    flex: 3;
+  }
+
+  .hero .image {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero .image img {
+    width: 280px;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid white;
+    box-shadow: var(--shadow-lg);
+    transition: var(--transition);
+  }
+
+  .hero .image img:hover {
+    transform: scale(1.05);
+  }
+
+  .cta-button {
+    display: inline-block;
+    padding: 0.75rem 1.75rem;
+    background-color: var(--primary);
+    color: white;
+    text-decoration: none;
+    border-radius: var(--radius);
+    font-weight: 600;
+    margin-top: 1.5rem;
+    transition: var(--transition);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .cta-button:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+  }
+
+  /* Interests Section */
+  .interests {
+    padding: 5rem 0;
+    background-color: var(--gray-light);
+  }
+
+  .interests h2 {
+    text-align: center;
+    position: relative;
+    padding-bottom: 1rem;
+  }
+
+  .interests h2::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--primary);
+  }
+
+  .interests-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .interest-card {
+    background-color: white;
+    padding: 2rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    height: 100%;
+  }
+
+  .interest-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .interest-card h3 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .hero .container {
+      flex-direction: column-reverse;
+      text-align: center;
+    }
+
+    .hero .image img {
+      width: 220px;
+      height: 220px;
+      margin-bottom: 2rem;
+    }
+
+    .interests-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
