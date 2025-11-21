@@ -1,227 +1,360 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
+import CodeSnippet from "../components/CodeSnippet.astro";
 ---
 <MainLayout title="Home">
   <!-- Hero Section -->
   <section class="hero">
     <div class="container">
-      <div class="content">
-        <h1>👋 Hi, I'm Wycliffe Onyango</h1>
-        <p class="tagline">Software Engineer | IoT Developer | DevOps Enthusiast</p>
-        <p>I'm passionate about building innovative solutions with cutting-edge technologies.</p>
-        <a href="/contact" class="cta-button">Get in Touch</a>
+      <div class="hero-content">
+        <h1 class="hero-title">Hello, I'm Wycliffe Onyango</h1>
+        <p class="hero-description">
+          Software Developer | Embedded Systems Engineer | DevOps Engineer
+        </p>
+        <p class="hero-tagline">
+          Building integrated systems that connect hardware, software, and cloud infrastructure.
+        </p>
       </div>
-      <div class="image">
-        <img src="/assets/profile.jpg" alt="Wycliffe Onyango" />
+      <div class="hero-visual">
+        <CodeSnippet />
       </div>
     </div>
   </section>
-  
+
   <!-- Interests Section -->
   <section class="interests">
     <div class="container">
-      <h2>💡 My Interests</h2>
+      <div class="section-header">
+        <h2 class="section-title">
+          <span class="section-number">01.</span>
+          <span class="section-text">My Interests</span>
+        </h2>
+      </div>
+
       <div class="interests-grid">
         <div class="interest-card">
-          <h3>🌐 Internet of Things (IoT)</h3>
-          <p>Building connected devices and smart solutions.</p>
+          <div class="card-icon">🔌</div>
+          <h3>Embedded Systems & IoT</h3>
+          <p>Creating IoT and automation solutions using microcontrollers, sensors, and real-world electronics.</p>
         </div>
         <div class="interest-card">
-          <h3>💻 Software Development</h3>
-          <p>Creating efficient and elegant solutions to complex problems.</p>
+          <div class="card-icon">💻</div>
+          <h3>Software Development</h3>
+          <p>Building backend services and cloud-native applications with Go, Rust, JavaScript, Python, and C++.</p>
         </div>
         <div class="interest-card">
-          <h3>⚙️ DevOps & Automation</h3>
-          <p>Streamlining development workflows and infrastructure.</p>
+          <div class="card-icon">☁️</div>
+          <h3>DevOps & Cloud</h3>
+          <p>Developing automation pipelines with CI/CD, AWS, Terraform, Docker, and Kubernetes.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Preview Section -->
+  <section class="about-preview">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">
+          <span class="section-number">02.</span>
+          <span class="section-text">About Me</span>
+        </h2>
+      </div>
+
+      <div class="about-content">
+        <p>
+          I'm a versatile Software Developer, Embedded Systems Engineer, and DevOps Engineer who builds
+          integrated systems that connect hardware, software, and cloud infrastructure.
+        </p>
+        <p>
+          Currently serving as CTO and Embedded Systems Engineer at Code & Circuits, and DevOps Engineer
+          at Zone01 Kisumu, I create IoT and automation solutions using modern DevOps practices,
+          microcontrollers, and cloud-native technologies.
+        </p>
+        <p>
+          I program in Go, Rust, JavaScript, Python, and C++, working confidently across low-level
+          embedded systems, backend services, and cloud environments.
+        </p>
+        <a href="/about" class="cta-button">Learn More About Me</a>
       </div>
     </div>
   </section>
 </MainLayout>
 
 <style>
-  /* Global Styles */
-  :root {
-    --primary: #3182ce;
-    --primary-dark: #2c5282;
-    --secondary: #f7fafc;
-    --gray-light: #f8f9fa;
-    --gray: #e2e8f0;
-    --dark: #2d3748;
-    --text: #4a5568;
-    --shadow-sm: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    --shadow: 0 4px 6px rgba(0,0,0,0.1);
-    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
-    --radius: 8px;
-    --transition: all 0.3s ease;
-  }
-
   /* Container */
   .container {
     width: 100%;
-    max-width: 1200px;
+    max-width: 1600px;
     margin: 0 auto;
-    padding: 0 1.5rem;
+    padding: 0 150px;
   }
 
-  /* Typography */
-  body {
-    color: var(--text);
-    line-height: 1.6;
-  }
-
-  h1, h2, h3 {
-    color: var(--dark);
-    margin-bottom: 1rem;
-  }
-
-  h1 {
-    font-size: 2.5rem;
-    font-weight: 700;
-  }
-
-  h2 {
-    font-size: 2rem;
-    margin-bottom: 2rem;
-  }
-
-  h3 {
-    font-size: 1.25rem;
-    font-weight: 600;
-  }
-
-  p {
-    margin-bottom: 1rem;
-  }
-
-  .tagline {
-    font-size: 1.25rem;
-    color: var(--primary);
-    font-weight: 500;
-    margin-bottom: 1.5rem;
-  }
-
-  
   /* Hero Section */
   .hero {
-    padding: 8rem 0 5rem;
-    background: linear-gradient(to right, var(--secondary), white);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0;
   }
 
   .hero .container {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
     align-items: center;
-    justify-content: space-between;
-    gap: 3rem;
   }
 
-  .hero .content {
-    flex: 3;
+  .hero-content {
+    max-width: 600px;
   }
 
-  .hero .image {
-    flex: 2;
+  .hero-title {
+    font-size: clamp(40px, 8vw, 80px);
+    font-weight: 700;
+    color: var(--lightest-slate);
+    margin-bottom: 30px;
+    line-height: 1.1;
+  }
+
+  .hero-description {
+    font-size: 20px;
+    line-height: 1.8;
+    color: var(--green);
+    margin-bottom: 20px;
+    font-weight: 500;
+  }
+
+  .hero-tagline {
+    font-size: 18px;
+    line-height: 1.8;
+    color: var(--slate);
+    margin-top: 20px;
+  }
+
+  .hero-visual {
     display: flex;
     justify-content: center;
+    align-items: center;
   }
 
-  .hero .image img {
-    width: 280px;
-    height: 280px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 4px solid white;
-    box-shadow: var(--shadow-lg);
-    transition: var(--transition);
+  /* Section Styles */
+  .section-header {
+    margin-bottom: 60px;
   }
 
-  .hero .image img:hover {
-    transform: scale(1.05);
+  .section-title {
+    display: flex;
+    align-items: center;
+    font-size: clamp(26px, 5vw, 32px);
+    font-weight: 700;
+    color: var(--lightest-slate);
+    position: relative;
+    white-space: nowrap;
+    margin: 0 0 40px 0;
   }
 
-  .cta-button {
-    display: inline-block;
-    padding: 0.75rem 1.75rem;
-    background-color: var(--primary);
-    color: white;
-    text-decoration: none;
-    border-radius: var(--radius);
-    font-weight: 600;
-    margin-top: 1.5rem;
-    transition: var(--transition);
-    box-shadow: var(--shadow-sm);
+  .section-number {
+    font-family: var(--font-mono);
+    color: var(--green);
+    font-size: clamp(16px, 3vw, 20px);
+    margin-right: 10px;
   }
 
-  .cta-button:hover {
-    background-color: var(--primary-dark);
-    transform: translateY(-3px);
-    box-shadow: var(--shadow);
+  .section-text::after {
+    content: "";
+    display: block;
+    position: relative;
+    width: 300px;
+    height: 1px;
+    background-color: var(--lightest-navy);
+    margin-left: 20px;
+    top: -5px;
   }
 
   /* Interests Section */
   .interests {
-    padding: 5rem 0;
-    background-color: var(--gray-light);
-  }
-
-  .interests h2 {
-    text-align: center;
-    position: relative;
-    padding-bottom: 1rem;
-  }
-
-  .interests h2::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 3px;
-    background-color: var(--primary);
+    padding: 100px 0;
   }
 
   .interests-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
+    gap: 30px;
   }
 
   .interest-card {
-    background-color: white;
-    padding: 2rem;
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
+    background-color: var(--light-navy);
+    padding: 30px;
+    border-radius: 8px;
     transition: var(--transition);
-    height: 100%;
+    border: 1px solid var(--lightest-navy);
   }
 
   .interest-card:hover {
     transform: translateY(-8px);
-    box-shadow: var(--shadow-lg);
+    border-color: var(--green);
+    box-shadow: 0 10px 30px -15px var(--navy-shadow);
+  }
+
+  .card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
   }
 
   .interest-card h3 {
-    color: var(--primary);
-    margin-bottom: 1rem;
+    color: var(--lightest-slate);
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+  }
+
+  .interest-card p {
+    color: var(--slate);
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* About Preview Section */
+  .about-preview {
+    padding: 100px 0;
+    background-color: var(--light-navy);
+  }
+
+  .about-content {
+    max-width: 800px;
+  }
+
+  .about-content p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: var(--slate);
+    margin-bottom: 20px;
+  }
+
+  .cta-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    margin-top: 20px;
+    color: var(--green);
+    background-color: transparent;
+    border: 1px solid var(--green);
+    border-radius: 4px;
+    font-family: var(--font-mono);
+    font-size: 14px;
+    text-decoration: none;
+    transition: var(--transition);
+  }
+
+  .cta-button:hover {
+    background-color: var(--green-tint);
+    transform: translateY(-2px);
   }
 
   /* Responsive Design */
-  @media (max-width: 768px) {
-    .hero .container {
-      flex-direction: column-reverse;
-      text-align: center;
+  @media (max-width: 1080px) {
+    .container {
+      padding: 0 100px;
     }
 
-    .hero .image img {
-      width: 220px;
-      height: 220px;
-      margin-bottom: 2rem;
+    .section-text::after {
+      width: 200px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      padding: 0 50px;
+    }
+
+    .hero {
+      min-height: auto;
+      padding: 80px 0;
+    }
+
+    .hero .container {
+      grid-template-columns: 1fr;
+      gap: 60px;
+    }
+
+    .hero-content {
+      max-width: 100%;
+    }
+
+    .hero-title {
+      font-size: clamp(32px, 8vw, 60px);
+      margin-bottom: 20px;
+    }
+
+    .hero-description {
+      font-size: 18px;
+    }
+
+    .hero-tagline {
+      font-size: 16px;
+      margin-top: 15px;
+    }
+
+    .interests {
+      padding: 80px 0;
     }
 
     .interests-grid {
       grid-template-columns: 1fr;
+    }
+
+    .about-preview {
+      padding: 80px 0;
+    }
+
+    .about-content p {
+      font-size: 16px;
+    }
+
+    .section-text::after {
+      width: 150px;
+      margin-left: 15px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .container {
+      padding: 0 25px;
+    }
+
+    .hero {
+      padding: 60px 0;
+    }
+
+    .hero .container {
+      gap: 40px;
+    }
+
+    .hero-title {
+      margin-bottom: 15px;
+    }
+
+    .section-header {
+      margin-bottom: 40px;
+    }
+
+    .section-title {
+      flex-direction: column;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+
+    .section-text::after {
+      display: none;
+    }
+
+    .interests {
+      padding: 60px 0;
+    }
+
+    .about-preview {
+      padding: 60px 0;
     }
   }
 </style>

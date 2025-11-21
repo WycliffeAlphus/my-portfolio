@@ -51,140 +51,291 @@ const projects = [
 
 <MainLayout title="Projects">
   <section class="projects">
-    <h1>My Projects</h1>
-    
-    <div class="filters">
-      <button class="active" data-filter="all">All</button>
-      <button data-filter="IoT">IoT</button>
-      <button data-filter="Software Development">Software</button>
-      <button data-filter="DevOps">DevOps</button>
-    </div>
-    
-    <div class="projects-grid">
-      {projects.map(project => (
-        <div class="project-card" data-category={project.category}>
-          <div class="project-image">
-            <img src={project.image} alt={project.title} />
-          </div>
-          <div class="project-content">
-            <h3>{project.title}</h3>
-            <p class="category">{project.category}</p>
-            <p>{project.description}</p>
-            <div class="tags">
-              {project.tags.map(tag => (
-                <span class="tag">{tag}</span>
-              ))}
+    <div class="container">
+      <div class="page-header">
+        <h1><span class="section-number">03.</span> My Projects</h1>
+      </div>
+
+      <div class="filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="IoT">IoT</button>
+        <button class="filter-btn" data-filter="Software Development">Software</button>
+        <button class="filter-btn" data-filter="DevOps">DevOps</button>
+      </div>
+
+      <div class="projects-grid">
+        {projects.map(project => (
+          <div class="project-card" data-category={project.category}>
+            <div class="project-image">
+              <img src={project.image} alt={project.title} />
+              <div class="project-overlay">
+                <a href={project.link} class="view-project-btn" target="_blank" rel="noopener noreferrer">View Project</a>
+              </div>
             </div>
-            <a href={project.link} class="view-project">View Project</a>
+            <div class="project-content">
+              <span class="project-category">{project.category}</span>
+              <h3>{project.title}</h3>
+              <p>{project.description}</p>
+              <div class="tags">
+                {project.tags.map(tag => (
+                  <span class="tag">{tag}</span>
+                ))}
+              </div>
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   </section>
 </MainLayout>
 
 <script>
   // Simple filtering functionality
-  const filterButtons = document.querySelectorAll('.filters button');
+  const filterButtons = document.querySelectorAll('.filter-btn');
   const projectCards = document.querySelectorAll('.project-card');
-  
+
   filterButtons.forEach(button => {
     button.addEventListener('click', () => {
       // Update active button
       filterButtons.forEach(btn => btn.classList.remove('active'));
       button.classList.add('active');
-      
+
       // Filter projects
       const filter = button.getAttribute('data-filter');
-      
-      projectCards.forEach(card => {
-  if (card instanceof HTMLElement) {
-    if (filter === 'all' || card.getAttribute('data-category') === filter) {
-      card.style.display = 'block';
-    } else {
-      card.style.display = 'none';
-    }
-  }
-});
 
+      projectCards.forEach(card => {
+        if (card instanceof HTMLElement) {
+          if (filter === 'all' || card.getAttribute('data-category') === filter) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        }
+      });
     });
   });
 </script>
 
 <style>
+  /* Container */
+  .container {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 150px;
+  }
+
+  /* Projects Section */
+  .projects {
+    padding: 50px 0 100px;
+    min-height: 100vh;
+  }
+
+  /* Page Header */
+  .page-header {
+    margin-bottom: 3rem;
+  }
+
+  .page-header h1 {
+    font-size: clamp(26px, 5vw, 32px);
+    font-weight: 700;
+    color: var(--lightest-slate);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-number {
+    font-family: var(--font-mono);
+    color: var(--green);
+    font-size: clamp(16px, 3vw, 20px);
+  }
+
+  /* Filters */
   .filters {
     display: flex;
     gap: 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
   }
-  
-  .filters button {
-    padding: 0.5rem 1rem;
-    background: none;
-    border: 1px solid #ddd;
+
+  .filter-btn {
+    padding: 0.6rem 1.5rem;
+    background-color: transparent;
+    color: var(--slate);
+    border: 1px solid var(--lightest-navy);
     border-radius: 4px;
     cursor: pointer;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    transition: var(--transition);
   }
-  
-  .filters button.active {
-    background-color: #0077cc;
-    color: white;
-    border-color: #0077cc;
+
+  .filter-btn:hover {
+    color: var(--green);
+    border-color: var(--green);
   }
-  
+
+  .filter-btn.active {
+    background-color: var(--green-tint);
+    color: var(--green);
+    border-color: var(--green);
+  }
+
+  /* Projects Grid */
   .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     gap: 2rem;
   }
-  
+
   .project-card {
+    background-color: var(--light-navy);
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
+    border: 1px solid var(--lightest-navy);
+    transition: var(--transition);
   }
-  
+
   .project-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px);
+    border-color: var(--green);
+    box-shadow: 0 10px 30px -15px var(--navy-shadow);
   }
-  
+
+  .project-image {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    background-color: var(--lightest-navy);
+  }
+
   .project-image img {
     width: 100%;
-    height: 200px;
+    height: 100%;
     object-fit: cover;
+    transition: var(--transition);
   }
-  
+
+  .project-card:hover .project-image img {
+    transform: scale(1.05);
+    filter: brightness(0.7);
+  }
+
+  .project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(10, 25, 47, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: var(--transition);
+  }
+
+  .project-card:hover .project-overlay {
+    opacity: 1;
+  }
+
+  .view-project-btn {
+    padding: 0.75rem 1.5rem;
+    background-color: transparent;
+    color: var(--green);
+    border: 1px solid var(--green);
+    border-radius: 4px;
+    text-decoration: none;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    transition: var(--transition);
+  }
+
+  .view-project-btn:hover {
+    background-color: var(--green-tint);
+  }
+
   .project-content {
     padding: 1.5rem;
   }
-  
-  .category {
-    color: #666;
-    margin-bottom: 1rem;
+
+  .project-category {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--green);
+    margin-bottom: 0.5rem;
+    display: inline-block;
   }
-  
+
+  .project-content h3 {
+    font-size: 1.4rem;
+    color: var(--lightest-slate);
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+  }
+
+  .project-content p {
+    color: var(--slate);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    font-size: 15px;
+  }
+
   .tags {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
-    margin: 1rem 0;
+    margin-top: 1rem;
   }
-  
+
   .tag {
-    background-color: #f0f0f0;
+    background-color: var(--lightest-navy);
+    color: var(--light-slate);
     padding: 0.25rem 0.75rem;
-    border-radius: 50px;
-    font-size: 0.8rem;
+    border-radius: 3px;
+    font-family: var(--font-mono);
+    font-size: 12px;
   }
-  
-  .view-project {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    background-color: #0077cc;
-    color: white;
-    text-decoration: none;
-    border-radius: 4px;
-    font-size: 0.9rem;
+
+  /* Responsive Design */
+  @media (max-width: 1080px) {
+    .container {
+      padding: 0 100px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      padding: 0 50px;
+    }
+
+    .projects {
+      padding: 30px 0 80px;
+    }
+
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .project-image {
+      height: 200px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .container {
+      padding: 0 25px;
+    }
+
+    .filters {
+      gap: 0.75rem;
+    }
+
+    .filter-btn {
+      padding: 0.5rem 1rem;
+      font-size: 12px;
+    }
   }
 </style>

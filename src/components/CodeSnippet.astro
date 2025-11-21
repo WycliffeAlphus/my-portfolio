@@ -1,0 +1,140 @@
+---
+// CodeSnippet Component - Terminal-style code display
+---
+<div class="code-window">
+  <div class="code-header">
+    <div class="window-controls">
+      <span class="control control-red"></span>
+      <span class="control control-yellow"></span>
+      <span class="control control-green"></span>
+    </div>
+  </div>
+  <div class="code-content">
+    <div class="code-line">
+      <span class="line-number">1</span>
+      <span class="code-text"><span class="bracket">&lt;</span>tech_stack<span class="bracket">&gt;</span></span>
+    </div>
+    <div class="code-line">
+      <span class="line-number">2</span>
+      <span class="code-text indent-1"><span class="bracket">&lt;</span><span class="tag">Go</span><span class="bracket">&gt;</span></span>
+    </div>
+    <div class="code-line">
+      <span class="line-number">3</span>
+      <span class="code-text indent-1"><span class="bracket">&lt;</span><span class="tag">Rust</span><span class="bracket">&gt;</span></span>
+    </div>
+    <div class="code-line">
+      <span class="line-number">4</span>
+      <span class="code-text indent-1"><span class="bracket">&lt;</span><span class="tag">JavaScript</span><span class="bracket">&gt;</span></span>
+    </div>
+    <div class="code-line">
+      <span class="line-number">5</span>
+      <span class="code-text indent-1"><span class="bracket">&lt;</span><span class="tag">Python</span><span class="bracket">&gt;</span></span>
+    </div>
+    <div class="code-line">
+      <span class="line-number">6</span>
+      <span class="code-text indent-1"><span class="bracket">&lt;</span><span class="tag">C++</span><span class="bracket">&gt;</span></span>
+    </div>
+    <div class="code-line">
+      <span class="line-number">7</span>
+      <span class="code-text"><span class="bracket">&lt;/</span>tech_stack<span class="bracket">&gt;</span></span>
+    </div>
+  </div>
+</div>
+
+<style>
+  .code-window {
+    background: #1e3a5f;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    max-width: 450px;
+    width: 100%;
+  }
+
+  .code-header {
+    background: #15293f;
+    padding: 12px 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .window-controls {
+    display: flex;
+    gap: 8px;
+  }
+
+  .control {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+  }
+
+  .control-red {
+    background: #ff5f57;
+  }
+
+  .control-yellow {
+    background: #febc2e;
+  }
+
+  .control-green {
+    background: #28c840;
+  }
+
+  .code-content {
+    padding: 20px 16px;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .code-line {
+    display: flex;
+    align-items: center;
+    margin-bottom: 4px;
+  }
+
+  .line-number {
+    color: #64748b;
+    min-width: 30px;
+    text-align: right;
+    margin-right: 20px;
+    user-select: none;
+    font-size: 13px;
+  }
+
+  .code-text {
+    color: #e2e8f0;
+  }
+
+  .indent-1 {
+    padding-left: 20px;
+  }
+
+  .bracket {
+    color: #64ffda;
+  }
+
+  .tag {
+    color: #e879f9;
+  }
+
+  @media (max-width: 768px) {
+    .code-window {
+      max-width: 100%;
+    }
+
+    .code-content {
+      font-size: 13px;
+      padding: 16px 12px;
+    }
+
+    .line-number {
+      min-width: 24px;
+      margin-right: 12px;
+    }
+
+    .indent-1 {
+      padding-left: 12px;
+    }
+  }
+</style>
