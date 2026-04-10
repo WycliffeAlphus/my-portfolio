@@ -19,6 +19,9 @@ const pathname = Astro.url.pathname;
             I work at <strong>Code & Circuits</strong> as the Chief Technology Officer (CTO) and Embedded Systems Engineer, creating IoT and automation solutions using microcontrollers, sensors, and real-world electronics to solve practical problems. I also serve as a DevOps Engineer at <strong>Zone01 Kisumu</strong>, where I develop systems and automation pipelines powered by modern DevOps practices such as CI/CD, cloud computing (AWS), and infrastructure as code with Terraform, as well as containerization using Docker and Kubernetes.
           </p>
           <p>
+            I have also worked as a <strong>DevOps Engineer</strong> at <a href="https://www.chichwa.ke/en/" target="_blank" rel="noopener noreferrer" class="inline-link">Chichwa</a> — a digital agricultural marketplace connecting farmers, cooperatives, buyers, and local government across Kenya, developed in partnership with UNDP and Kenyan County governments.
+          </p>
+          <p>
             I program in Go, Rust, JavaScript, Python, and C++, enabling me to work confidently across low-level embedded systems, backend services, and cloud-native environments. Passionate about system reliability and the convergence of hardware and cloud technologies, I focus on building scalable, secure architectures that deliver real-world impact.
           </p>
           <p>
@@ -249,6 +252,17 @@ const pathname = Astro.url.pathname;
     line-height: 1.8;
     color: var(--slate);
     margin-bottom: 20px;
+  }
+
+  .inline-link {
+    color: var(--green);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: var(--transition);
+  }
+
+  .inline-link:hover {
+    border-bottom-color: var(--green);
   }
 
   .bio-image {

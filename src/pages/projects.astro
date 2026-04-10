@@ -1,51 +1,39 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
 
-// You could fetch this from a CMS or local data file
 const projects = [
-  {
-    title: "Id-Track",
-    category: "IoT",
-    description: "ID Track is a smart access and tracking system that uses ID cards to monitor and log entries and exits in various locations. It can be used for schools, offices, gyms, events, and more. The system ensures secure access management while providing real-time tracking and reporting.",
-    image: "/assets/project1.jpg",
-    tags: ["Arduino", "ESP32", "MQTT", "Python", "C++"],
-    link: "https://www.linkedin.com/posts/wycliffe-alphus-onyango_gps-iot-techinnovation-activity-7309635038583640064-8t0T?utm_source=share&utm_medium=member_desktop&rcm=ACoAAErgyE0BAVqJ0KjVHjv1f5MpBVMoEgM6KzQ"
-  },
   {
     title: "IoT Device Security Protocol",
     category: "IoT",
-    description: "The IoT Device Security Protocol is a framework designed to secure IoT devices by providing authentication, encryption, and integrity for device communication and management. This protocol helps protect sensitive data, prevent unauthorized access, and ensure secure device updates.",
+    description: "A framework designed to secure IoT devices by providing authentication, encryption, and integrity for device communication and management. Protects sensitive data, prevents unauthorized access, and ensures secure device updates.",
     image: "/assets/IoT.jpeg",
     tags: ["Arduino", "ESP32", "MQTT", "Go", "C++"],
     link: "https://github.com/WycliffeAlphus/IOT-Device-Security-Protocol"
   },
   {
-    title: "Personal Portfolio Website",
+    title: "ID-Track",
+    category: "IoT",
+    description: "A smart access and tracking system that uses ID cards to monitor and log entries and exits in various locations — schools, offices, gyms, events, and more. Provides secure access management with real-time tracking and reporting.",
+    image: "/assets/project1.jpg",
+    tags: ["Arduino", "ESP32", "MQTT", "Python", "C++"],
+    link: "https://www.linkedin.com/posts/wycliffe-alphus-onyango_gps-iot-techinnovation-activity-7309635038583640064-8t0T?utm_source=share&utm_medium=member_desktop&rcm=ACoAAErgyE0BAVqJ0KjVHjv1f5MpBVMoEgM6KzQ"
+  },
+  {
+    title: "CortexVault",
     category: "Software Development",
-    description: "A fast, responsive portfolio website built with Astro and modern web technologies.",
+    description: "A decentralized platform for Kenyan patients to maintain control over their brain/EEG data while enabling medical research. Features encrypted storage on Filecoin via Storacha, granular researcher access controls, complete audit trails, and a bilingual (English/Swahili) mobile-first interface aligned with Kenya's Data Protection Act.",
     image: "/assets/port.png",
-    tags: ["Astro", "HTML", "CSS", "JavaScript"],
-    link: "#"
+    tags: ["Filecoin", "Storacha", "Go", "TypeScript"],
+    link: "https://github.com/WycliffeAlphus/cortexvault"
   },
-
   {
-    title: "url-shortener",
+    title: "RDBMS From Scratch",
     category: "Software Development",
-    description: "The program accepts a long URL and returns a shortened URL.",
+    description: "A relational database management system built from scratch in Python. Supports full SQL (CREATE, INSERT, SELECT, UPDATE, DELETE), INNER JOINs, WHERE clause evaluation, hash-based indexing, multiple data types, and constraint enforcement (PRIMARY KEY, UNIQUE, NOT NULL).",
     image: "/assets/url.png",
-    tags: ["Go", "Docker", "HTML", "CSS", "JavaScript"],
-    link: "https://url-kms9.onrender.com/"
+    tags: ["Python", "SQL", "Data Structures"],
+    link: "https://github.com/WycliffeAlphus/rdbms-project"
   },
-
-  {
-    title: "CI/CD Pipeline Setup",
-    category: "DevOps",
-    description: "Automated build, test, and deployment pipeline for a microservice architecture.",
-    image: "/assets/project3.png",
-    tags: ["GitHub Actions", "Docker", "Kubernetes", "AWS"],
-    link: "#"
-  },
-  // more projects as needed
 ];
 ---
 
@@ -56,16 +44,9 @@ const projects = [
         <h1><span class="section-number">03.</span> My Projects</h1>
       </div>
 
-      <div class="filters">
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="IoT">IoT</button>
-        <button class="filter-btn" data-filter="Software Development">Software</button>
-        <button class="filter-btn" data-filter="DevOps">DevOps</button>
-      </div>
-
       <div class="projects-grid">
         {projects.map(project => (
-          <div class="project-card" data-category={project.category}>
+          <div class="project-card">
             <div class="project-image">
               <img src={project.image} alt={project.title} />
               <div class="project-overlay">
@@ -88,33 +69,6 @@ const projects = [
     </div>
   </section>
 </MainLayout>
-
-<script>
-  // Simple filtering functionality
-  const filterButtons = document.querySelectorAll('.filter-btn');
-  const projectCards = document.querySelectorAll('.project-card');
-
-  filterButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      // Update active button
-      filterButtons.forEach(btn => btn.classList.remove('active'));
-      button.classList.add('active');
-
-      // Filter projects
-      const filter = button.getAttribute('data-filter');
-
-      projectCards.forEach(card => {
-        if (card instanceof HTMLElement) {
-          if (filter === 'all' || card.getAttribute('data-category') === filter) {
-            card.style.display = 'block';
-          } else {
-            card.style.display = 'none';
-          }
-        }
-      });
-    });
-  });
-</script>
 
 <style>
   /* Container */
@@ -149,37 +103,6 @@ const projects = [
     font-family: var(--font-mono);
     color: var(--green);
     font-size: clamp(16px, 3vw, 20px);
-  }
-
-  /* Filters */
-  .filters {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 3rem;
-    flex-wrap: wrap;
-  }
-
-  .filter-btn {
-    padding: 0.6rem 1.5rem;
-    background-color: transparent;
-    color: var(--slate);
-    border: 1px solid var(--lightest-navy);
-    border-radius: 4px;
-    cursor: pointer;
-    font-family: var(--font-mono);
-    font-size: 13px;
-    transition: var(--transition);
-  }
-
-  .filter-btn:hover {
-    color: var(--green);
-    border-color: var(--green);
-  }
-
-  .filter-btn.active {
-    background-color: var(--green-tint);
-    color: var(--green);
-    border-color: var(--green);
   }
 
   /* Projects Grid */
