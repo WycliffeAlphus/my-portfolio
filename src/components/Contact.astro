@@ -1,0 +1,449 @@
+---
+// Contact Component
+---
+
+<section id="contact" class="contact">
+  <div class="container">
+    <div class="section-header page-header">
+      <h2 class="section-title">
+        <span class="section-number">04.</span>
+        <span class="section-text">Get in Touch</span>
+      </h2>
+    </div>
+
+    <div class="contact-container">
+      <div class="contact-info">
+        <h2 class="contact-title">Initiate Handshake</h2>
+        <p class="contact-intro">Whether you have a question, a project idea, or just want to establish a connection, feel free to ping me.</p>
+
+        <div class="terminal-block">
+          <div class="terminal-header">
+            <div class="terminal-buttons">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="terminal-title">contact_info.sh</div>
+          </div>
+          <div class="terminal-body">
+            <div class="terminal-line">
+              <span class="prompt">$</span> <span class="command">cat contact_methods.json | jq</span>
+            </div>
+            <div class="terminal-output">
+              &#123;<br>
+              &nbsp;&nbsp;"phone": "<span class="string">📞 +254718680481</span>",<br>
+              &nbsp;&nbsp;"email": "<span class="string">📧 wycliffealphus7@gmail.com</span>",<br>
+              &nbsp;&nbsp;"location": "<span class="string">📍 Kisumu, Kenya</span>"<br>
+              &#125;
+            </div>
+          </div>
+        </div>
+
+        <div class="social-links">
+          <h3 class="social-title">Social Signals</h3>
+          <div class="social-icons">
+            <a href="https://github.com/WycliffeAlphus" target="_blank" rel="noopener" aria-label="GitHub">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/wycliffe-alphus-onyango/" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+            </a>
+            <a href="https://x.com/WycliffeAlphus" target="_blank" rel="noopener" aria-label="X (Twitter)">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="currentColor"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <div class="form-header">
+          <span class="status-indicator"></span> Secure Connection Expected
+        </div>
+        <form id="contactForm">
+          <div class="form-group">
+            <label for="name">Identifier (Name)</label>
+            <input type="text" id="name" name="name" required placeholder="John Doe" />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Return Address (Email)</label>
+            <input type="email" id="email" name="email" required placeholder="john@example.com" />
+          </div>
+
+          <div class="form-group">
+            <label for="subject">Topic (Subject)</label>
+            <input type="text" id="subject" name="subject" required placeholder="System Integration Query" />
+          </div>
+
+          <div class="form-group">
+            <label for="message">Payload (Message)</label>
+            <textarea id="message" name="message" rows="5" required placeholder="Enter message payload here..."></textarea>
+          </div>
+
+          <button type="submit" class="submit-button">
+            <span class="btn-text">Execute Transmit</span>
+            <span class="btn-icon">→</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Form submission handling (client-side only)
+  const contactForm = document.getElementById('contactForm') as HTMLFormElement;
+
+  if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      const btn = contactForm.querySelector('.submit-button') as HTMLButtonElement;
+      const originalText = btn.innerHTML;
+      btn.innerHTML = 'Transmitting...';
+      btn.disabled = true;
+
+      setTimeout(() => {
+        alert('Payload successfully delivered! (This is a demonstration)');
+        contactForm.reset();
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+      }, 1000);
+    });
+  }
+</script>
+
+<style>
+  /* Contact Section */
+  .contact {
+    padding: 100px 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background-color: var(--navy);
+    background-image: 
+      linear-gradient(rgba(100, 255, 218, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(100, 255, 218, 0.03) 1px, transparent 1px);
+    background-size: 30px 30px;
+    background-position: center center;
+    position: relative;
+  }
+
+  /* Page Header */
+  .page-header {
+    margin-bottom: 4rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  .section-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: var(--font-heading);
+    font-size: clamp(32px, 6vw, 45px);
+    font-weight: 800;
+    position: relative;
+    white-space: nowrap;
+    margin: 0 0 40px 0;
+    letter-spacing: -1px;
+    background: linear-gradient(135deg, var(--blue) 0%, var(--green) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .section-number {
+    font-family: var(--font-mono);
+    color: var(--green);
+    font-size: clamp(16px, 3vw, 20px);
+    margin-bottom: 5px;
+  }
+
+  .section-text::after {
+    content: "";
+    display: block;
+    position: relative;
+    width: 150px;
+    height: 2px;
+    background-color: var(--green);
+    margin: 15px auto 0 auto;
+    opacity: 0.5;
+  }
+
+  /* Contact Container */
+  .contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+
+  .contact-title {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
+    background: linear-gradient(135deg, var(--white) 0%, var(--blue) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .contact-intro {
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+    color: var(--slate);
+    line-height: 1.6;
+  }
+  
+  /* Terminal Block */
+  .terminal-block {
+    background-color: #0a192f;
+    border-radius: 6px;
+    border: 1px solid var(--lightest-navy);
+    overflow: hidden;
+    margin-bottom: 3rem;
+    box-shadow: 0 10px 30px -15px var(--navy-shadow);
+  }
+  
+  .terminal-header {
+    background-color: var(--lightest-navy);
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #0a192f;
+  }
+  
+  .terminal-buttons {
+    display: flex;
+    gap: 6px;
+  }
+  
+  .terminal-buttons span {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--slate);
+  }
+  
+  .terminal-buttons span:nth-child(1) { background-color: #ff5f56; }
+  .terminal-buttons span:nth-child(2) { background-color: #ffbd2e; }
+  .terminal-buttons span:nth-child(3) { background-color: #27c93f; }
+  
+  .terminal-title {
+    flex: 1;
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--slate);
+    margin-left: -40px; /* Offset to visually center */
+  }
+  
+  .terminal-body {
+    padding: 20px;
+    font-family: var(--font-mono);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  
+  .prompt {
+    color: var(--pink);
+  }
+  
+  .command {
+    color: var(--green);
+  }
+  
+  .terminal-output {
+    color: var(--light-slate);
+    margin-top: 10px;
+  }
+  
+  .string {
+    color: #e6db74;
+  }
+
+  .social-links {
+    margin-top: 2.5rem;
+  }
+
+  .social-title {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, var(--white) 0%, var(--blue) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  .social-title::before {
+    content: '>';
+    color: var(--green);
+    margin-right: 10px;
+  }
+
+  .social-icons {
+    display: flex;
+    gap: 1.2rem;
+    margin-top: 1rem;
+  }
+
+  .social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 4px;
+    background-color: var(--light-navy);
+    color: var(--slate);
+    transition: var(--transition);
+    border: 1px solid var(--lightest-navy);
+  }
+
+  .social-icons a:hover {
+    background-color: var(--green-tint);
+    color: var(--green);
+    border-color: var(--green);
+    transform: translateY(-3px);
+  }
+
+  /* Contact Form updated */
+  .contact-form {
+    background-color: var(--light-navy);
+    padding: 0;
+    border-radius: 4px;
+    border: 1px solid var(--lightest-navy);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .contact-form::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background-color: var(--green);
+  }
+  
+  .form-header {
+    padding: 15px 25px;
+    border-bottom: 1px solid var(--lightest-navy);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--green);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: rgba(100, 255, 218, 0.05);
+  }
+  
+  .status-indicator {
+    width: 8px;
+    height: 8px;
+    background-color: var(--green);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+  
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(100, 255, 218, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(100, 255, 218, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(100, 255, 218, 0); }
+  }
+  
+  #contactForm {
+    padding: 25px;
+  }
+
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 0.6rem;
+    font-family: var(--font-mono);
+    color: var(--light-slate);
+    font-size: 13px;
+  }
+
+  input, textarea {
+    width: 100%;
+    padding: 0.9rem;
+    border: 1px solid var(--lightest-navy);
+    border-radius: 2px;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: var(--transition);
+    background-color: var(--navy);
+    color: var(--lightest-slate);
+  }
+
+  input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--green);
+    box-shadow: 0 0 0 1px var(--green);
+  }
+  
+  input::placeholder, textarea::placeholder {
+    color: var(--dark-slate);
+    font-family: var(--font-mono);
+    font-size: 13px;
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  .submit-button {
+    padding: 0.9rem 2rem;
+    background-color: transparent;
+    color: var(--green);
+    border: 1px solid var(--green);
+    border-radius: 2px;
+    cursor: pointer;
+    font-family: var(--font-mono);
+    font-size: 14px;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .submit-button:hover {
+    background-color: var(--green-tint);
+  }
+  
+  .submit-button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 900px) {
+    .contact-container {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .contact {
+      padding: 80px 0;
+    }
+  }
+</style>

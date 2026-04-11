@@ -1,0 +1,335 @@
+---
+const projects = [
+  {
+    title: "IoT Device Security Protocol",
+    category: "IoT / Security",
+    description: "A framework designed to secure IoT devices by providing authentication, encryption, and integrity for device communication and management. Protects sensitive data, prevents unauthorized access, and ensures secure device updates.",
+    image: "/assets/IoT.jpeg",
+    tags: ["Arduino", "ESP32", "MQTT", "Go", "C++"],
+    link: "https://github.com/WycliffeAlphus/IOT-Device-Security-Protocol"
+  },
+  {
+    title: "ID-Track",
+    category: "Hardware / IoT",
+    description: "A smart access and tracking system that uses ID cards to monitor and log entries and exits in various locations — schools, offices, gyms, events, and more. Provides secure access management with real-time tracking and reporting.",
+    image: "/assets/project1.jpg",
+    tags: ["Arduino", "ESP32", "MQTT", "Python", "C++"],
+    link: "https://www.linkedin.com/posts/wycliffe-alphus-onyango_gps-iot-techinnovation-activity-7309635038583640064-8t0T?utm_source=share&utm_medium=member_desktop&rcm=ACoAAErgyE0BAVqJ0KjVHjv1f5MpBVMoEgM6KzQ"
+  },
+  {
+    title: "CortexVault",
+    category: "Software Development",
+    description: "A decentralized platform for Kenyan patients to maintain control over their brain/EEG data while enabling medical research. Features encrypted storage on Filecoin via Storacha, granular researcher access controls, and a bilingual interface aligned with Kenya's DPA.",
+    image: "/assets/cortexvault.png",
+    tags: ["Filecoin", "Storacha", "Go", "TypeScript"],
+    link: "https://github.com/WycliffeAlphus/cortexvault"
+  },
+  {
+    title: "RDBMS From Scratch",
+    category: "System Software",
+    description: "A relational database management system built from scratch in Python. Supports full SQL (CREATE, INSERT, SELECT, UPDATE, DELETE), INNER JOINs, hash-based indexing, multiple data types, and constraint enforcement.",
+    image: "",
+    video: "/assets/rdbms-repl.webm",
+    tags: ["Python", "SQL", "Data Structures"],
+    link: "https://github.com/WycliffeAlphus/rdbms-project"
+  },
+];
+---
+
+<section id="projects" class="projects">
+  <div class="container">
+    <div class="section-header page-header">
+      <h2 class="section-title">
+        <span class="section-number">03.</span>
+        <span class="section-text">My Projects</span>
+      </h2>
+    </div>
+
+    <div class="projects-grid">
+      {projects.map(project => (
+        <div class="project-card">
+          <div class="project-image">
+            {project.video ? (
+              <video autoplay loop muted playsinline>
+                <source src={project.video} type="video/webm" />
+              </video>
+            ) : (
+              <img src={project.image} alt={project.title} />
+            )}
+            <div class="project-overlay">
+              <a href={project.link} class="view-project-btn" target="_blank" rel="noopener noreferrer">Inspect_code()</a>
+            </div>
+          </div>
+          <div class="project-content">
+            <span class="project-category">{project.category}</span>
+            <h3>{project.title}</h3>
+            <p>{project.description}</p>
+            <div class="tags">
+              {project.tags.map(tag => (
+                <span class="tag">{tag}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Projects Section */
+  .projects {
+    padding: 100px 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background-color: #000000;
+    position: relative;
+  }
+
+  /* Feather gradient to Contact section */
+  .projects::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 15vh;
+    background: linear-gradient(to bottom, transparent, var(--navy));
+    pointer-events: none;
+    z-index: 10;
+  }
+
+  /* Page Header */
+  .page-header {
+    margin-bottom: 3rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  .section-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: var(--font-heading);
+    font-size: clamp(32px, 6vw, 45px);
+    font-weight: 800;
+    position: relative;
+    white-space: nowrap;
+    margin: 0 0 40px 0;
+    letter-spacing: -1px;
+    background: linear-gradient(135deg, var(--blue) 0%, var(--green) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .section-number {
+    font-family: var(--font-mono);
+    color: var(--green);
+    font-size: clamp(16px, 3vw, 20px);
+    margin-bottom: 5px;
+  }
+
+  .section-text::after {
+    content: "";
+    display: block;
+    position: relative;
+    width: 150px;
+    height: 2px;
+    background-color: var(--green);
+    margin: 15px auto 0 auto;
+    opacity: 0.5;
+  }
+
+  /* Projects Grid */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2.5rem;
+  }
+
+  .project-card {
+    background-color: var(--light-navy);
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid var(--lightest-navy);
+    transition: var(--transition);
+    position: relative;
+  }
+  
+  .project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--green);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+    z-index: 2;
+  }
+
+  .project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px -15px rgba(100, 255, 218, 0.2);
+  }
+  
+  .project-card:hover::before {
+    transform: scaleX(1);
+  }
+
+  .project-image {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    background-color: var(--navy);
+    border-bottom: 1px solid var(--lightest-navy);
+  }
+
+  .project-image img,
+  .project-image video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+    filter: grayscale(40%);
+  }
+
+  .project-card:hover .project-image img,
+  .project-card:hover .project-image video {
+    transform: scale(1.05);
+    filter: grayscale(0%);
+  }
+
+  .project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(10, 25, 47, 0.85);
+    backdrop-filter: blur(2px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: var(--transition);
+  }
+
+  .project-card:hover .project-overlay {
+    opacity: 1;
+  }
+
+  .view-project-btn {
+    padding: 0.75rem 1.5rem;
+    background-color: transparent;
+    color: var(--green);
+    border: 1px solid var(--green);
+    border-radius: 2px;
+    text-decoration: none;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .view-project-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--green-tint);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.2s ease;
+    z-index: -1;
+  }
+
+  .view-project-btn:hover::before {
+    transform: scaleX(1);
+  }
+
+  .project-content {
+    padding: 1.5rem;
+  }
+
+  .project-category {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--green);
+    margin-bottom: 0.5rem;
+    display: inline-block;
+  }
+
+  .project-content h3 {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    background: linear-gradient(135deg, var(--white) 0%, var(--blue) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .project-content h3:hover {
+    color: var(--green);
+  }
+
+  .project-content p {
+    color: var(--slate);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    font-size: 15px;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .tag {
+    color: var(--light-slate);
+    font-family: var(--font-mono);
+    font-size: 12px;
+  }
+  
+  .tag::before {
+    content: '>';
+    color: var(--green);
+    margin-right: 4px;
+    font-weight: bold;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .projects {
+      padding: 80px 0;
+    }
+
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .project-image {
+      height: 200px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .projects {
+      padding: 60px 0;
+    }
+  }
+</style>
